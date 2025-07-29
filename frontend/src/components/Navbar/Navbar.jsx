@@ -12,33 +12,11 @@ const Navbar = ({ setShowLogin }) => {
   const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
   //using useNavigate hook to navigate to different pages
   const navigate=useNavigate();
-  
-  //function to handle navigation to home page sections
-  const handleSectionNavigation = (sectionId, menuName) => {
-    setMenu(menuName);
-    
-    // If we're already on home page, just scroll to section
-    if (window.location.pathname === '/') {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      // Navigate to home page first, then scroll to section
-      navigate('/');
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100); // Small delay to ensure page loads
-    }
-  };
-  
   //logout function to clear the token and redirect to home
   const logout=()=>{
     localStorage.removeItem("token");
     setToken("");
+    toast.success("Logout Successfully")
     navigate("/");
   }
 
@@ -51,24 +29,9 @@ const Navbar = ({ setShowLogin }) => {
         {/* applying the active classnames intially to home which changes to different one on click */}
         {/* link to navigate to different section of page */}
         <Link to='/' onClick={() => setMenu("home")} className={menu === "home" ? "active" : ""}>home</Link>
-        <button 
-          onClick={() => handleSectionNavigation('explore-menu', 'menu')} 
-          className={menu === "menu" ? "active navbar-link-button" : "navbar-link-button"}
-        >
-          menu
-        </button>
-        <button 
-          onClick={() => handleSectionNavigation('app-download', 'mobile-app')} 
-          className={menu === "mobile-app" ? "active navbar-link-button" : "navbar-link-button"}
-        >
-          mobile-app
-        </button>
-        <button 
-          onClick={() => handleSectionNavigation('footer', 'contact us')} 
-          className={menu === "contact us" ? "active navbar-link-button" : "navbar-link-button"}
-        >
-          contact us
-        </button>
+        <a href='#explore-menu' onClick={() => setMenu("menu")} className={menu === "menu" ? "active" : ""}>menu</a>
+        <a href='#app-download' onClick={() => setMenu("mobile-app")} className={menu === "mobile-app" ? "active" : ""}>mobile-app</a>
+        <a href='#footer' onClick={() => setMenu("contact us")} className={menu === "contact us" ? "active" : ""}>contact us</a>
       </ul>
       <div className='navbar-right'>
         <img src={assets.search_icon} alt="" />
