@@ -42,6 +42,11 @@
     margin-right: 15px;
 }
 
+.footer-logo {
+    width: 120px;
+    height: 110px;
+}
+
 .footer hr{
     width: 100%;
     height: 2px;

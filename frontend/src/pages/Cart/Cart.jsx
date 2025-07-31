@@ -1,4 +1,5 @@
-import { useContext } from "react";
+/* eslint-disable no-unused-vars */
+import React, { useContext } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../context/StoreContext";
 import { useNavigate } from "react-router-dom";
@@ -23,7 +24,7 @@ const Cart = () => {
         <br />
         <hr />
         {/* displaying the items selected in cart */}
-        {food_list.map((item) => {
+        {food_list.map((item, index) => {
           if (cartItems[item._id] > 0) {
             return (
               <div key={item._id}>
