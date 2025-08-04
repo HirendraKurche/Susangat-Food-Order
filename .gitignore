@@ -37,3 +37,6 @@ logs
 # system files
 Thumbs.db
 ehthumbs.db
+
+# uploads directory
+uploads/
