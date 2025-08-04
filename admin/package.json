@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "chmod +x ./build.sh && ./build.sh",
-    "build-direct": "./node_modules/.bin/vite build",
+    "build": "node build.js",
+    "build-vite": "vite build",
     "preview": "vite preview --host 0.0.0.0 --port $PORT",
     "start": "vite preview --host 0.0.0.0 --port $PORT"
   },
