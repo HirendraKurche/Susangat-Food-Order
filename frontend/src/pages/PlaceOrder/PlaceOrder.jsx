@@ -5,11 +5,11 @@ import "./PlaceOrder.css";
 import { StoreContext } from "../../context/StoreContext";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom"; // Add this import
 
 const PlaceOrder = () => {
   const { getTotalCartAmount, token, food_list, cartItems, url } = useContext(StoreContext);
+  const navigate = useNavigate(); // Add this line
 
   //creating a state variable for the place order form data
   const [data, setData] = useState({
