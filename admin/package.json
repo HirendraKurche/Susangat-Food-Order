@@ -4,10 +4,11 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npx vite",
-    "build": "npx vite build",
-    "lint": "npx eslint .",
-    "preview": "npx vite preview --host 0.0.0.0 --port $PORT"
+    "dev": "vite",
+    "build": "chmod +x ./build.sh && ./build.sh",
+    "build-direct": "./node_modules/.bin/vite build",
+    "preview": "vite preview --host 0.0.0.0 --port $PORT",
+    "start": "vite preview --host 0.0.0.0 --port $PORT"
   },
   "dependencies": {
     "axios": "^1.11.0",
