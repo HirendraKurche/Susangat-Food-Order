@@ -1,6 +1,6 @@
 import React from "react";
 import "./Orders.css";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
@@ -22,15 +22,26 @@ const Orders = ({ url }) => {
   // State to hold the orders data coming form api
   const [orders, setOrders] = useState([]);
 
-  const fetchAllOrder = async () => {
-    // Making a GET request to fetch all orders
-    const response = await axios.get(url + "/api/order/list", {headers: { token },});
-    if (response.data.success) {
-      setOrders(response.data.data);
-    }else{
-      toast.error("Error fetching orders");
+  const fetchAllOrder = useCallback(async () => {
+    console.log("Fetching orders with token:", !!token);
+    console.log("Admin status:", admin);
+    console.log("URL:", url + "/api/order/list");
+    try {
+      // Making a GET request to fetch all orders
+      const response = await axios.get(url + "/api/order/list", {headers: { token },});
+      console.log("Orders API response:", response.data);
+      if (response.data.success) {
+        console.log("Orders fetched successfully:", response.data.data?.length || 0, "orders");
+        setOrders(response.data.data);
+      }else{
+        console.error("Error fetching orders:", response.data.message);
+        toast.error("Error fetching orders: " + response.data.message);
+      }
+    } catch (error) {
+      console.error("Network error fetching orders:", error);
+      toast.error("Network error fetching orders");
     }
-  };
+  }, [url, token, admin]);
 
 
   // Function to handle the status change of an order in admin panel
@@ -51,8 +62,10 @@ const Orders = ({ url }) => {
     //   toast.error("Please Login First");
     //   navigate("/");
     // }
-    fetchAllOrder();
-  }, []);
+    if (token && admin) {
+      fetchAllOrder();
+    }
+  }, [token, admin, fetchAllOrder]);
 
   return (
     <div className="order add">
