@@ -2,6 +2,8 @@ import React from 'react'
 import './ExploreMenu.css'
 import { menu_list } from '../../assets/assets'
 
+
+
 // destructuring props to get category and setCategory
 const ExploreMenu = ({category,setCategory}) => {
   return (
