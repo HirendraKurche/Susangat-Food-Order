@@ -8,7 +8,7 @@ const StoreContextProvider = (props) => {
     // crating a state variable
     const [cartItems, setCartItems] = useState({});
     //
-    const url = "http://localhost:4000"; // Base URL for API requests
+    const url = "https://susangat-food-delivery-frontend.onrender.com"; // Base URL for API requests
 
     // token for authentication, initially set to null or from localStorage 
     const [token, setToken] = useState(localStorage.getItem("token") || "");
