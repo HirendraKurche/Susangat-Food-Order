@@ -10,9 +10,6 @@ import LoginPopup from './components/LoginPopup/LoginPopup'
 import Verify from './pages/Verify/Verify'
 import MyOrders from './pages/MyOrders/MyOrders'
 import Debug from './pages/Debug/Debug'
-import { ToastContainer } from 'react-toastify' // Add this import
-import 'react-toastify/dist/ReactToastify.css' // Add this import
-
 const App = () => {
 
   // creating a state variable for login popup
@@ -37,7 +34,6 @@ const App = () => {
         </Routes>
       </div>
       <Footer/>
-      <ToastContainer /> {/* Add this line */}
     </>
   )
 }
