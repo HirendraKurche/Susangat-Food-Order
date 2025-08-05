@@ -1,0 +1,36 @@
+# Admin specific gitattributes
+
+# All text files should use LF line endings
+* text=auto eol=lf
+
+# Admin specific files
+*.jsx text
+*.js text
+*.ts text
+*.tsx text
+*.css text
+*.scss text
+*.sass text
+*.less text
+*.html text
+*.json text
+*.md text
+
+# Configuration files
+package.json text
+package-lock.json text
+vite.config.js text
+eslint.config.js text
+index.html text
+
+# Assets
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.svg text
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
