@@ -10,5 +10,9 @@ node_modules/
 logs
 *.log
 
-# Uploads (optional - if you want to exclude uploaded files)
-uploads/
+# Uploads folder - include base images, exclude user uploads
+# uploads/
+# Note: We're including uploads folder so base food images are deployed
+# You can exclude specific patterns if needed, like:
+# uploads/*.tmp
+# uploads/temp/
