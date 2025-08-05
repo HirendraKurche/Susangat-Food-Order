@@ -6,7 +6,16 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'http://localhost:3000'
+      '/api': {
+        target: process.env.NODE_ENV === 'production' 
+          ? 'https://susangat-food-del-backend.onrender.com'
+          : 'http://localhost:3000',
+        changeOrigin: true,
+        secure: true
+      }
     }
+  },
+  build: {
+    outDir: 'dist'
   }
 })

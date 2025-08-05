@@ -27,11 +27,6 @@
 *.env.*     # .env.local, .env.production, etc.
 
 # =============================
-# Uploads / Media
-# =============================
-backend/uploads/
-
-# =============================
 # System / Editor Junk Files
 # =============================
 .DS_Store

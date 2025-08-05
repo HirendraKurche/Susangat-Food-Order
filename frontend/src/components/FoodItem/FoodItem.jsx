@@ -11,7 +11,18 @@ const FoodItem = ({id,name,price,description,image}) => {
   return (
     <div className='food-item'>
         <div className="food-item-img-container">
-            <img src={url+"/images/"+image} className='food-item-img' />
+            <img 
+              src={url+"/images/"+image} 
+              className='food-item-img' 
+              onError={(e) => {
+                console.error('Image failed to load:', url + "/images/" + image);
+                e.target.style.display = 'none';
+              }}
+              onLoad={() => {
+                console.log('Image loaded successfully:', url + "/images/" + image);
+              }}
+              alt={name}
+            />
             {/* if itemCount is 0 then show add icon else show the counter */}
             {/* onClick event to increase the itemCount by 1  and shows red/ green plus icon respectively */}
 

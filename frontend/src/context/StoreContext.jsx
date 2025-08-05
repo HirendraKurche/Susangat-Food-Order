@@ -8,7 +8,7 @@ const StoreContextProvider = (props) => {
     // crating a state variable
     const [cartItems, setCartItems] = useState({});
     //
-    const url = "https://susangat-food-del-backend.onrender.com"; // Base URL for API requests
+    const url = import.meta.env.VITE_API_URL || "https://susangat-food-del-backend.onrender.com"; // Use environment variable
 
     // token for authentication, initially set to null or from localStorage 
     const [token, setToken] = useState(localStorage.getItem("token") || "");

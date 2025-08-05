@@ -11,8 +11,7 @@ import StoreContextProvider from "./context/StoreContext";
 import Login from "./components/Login/Login";
 
 const App = () => {
-  // const url = "https://food-delivery-backend-5b6g.onrender.com";
-  const url = "http://localhost:4000";
+  const url = "https://susangat-food-del-backend.onrender.com";
   return (
     <StoreContextProvider>
       <ToastContainer />
