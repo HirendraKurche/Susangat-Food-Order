@@ -1,0 +1,5 @@
+".env" 
+".env" 
+-e "\n# Environment variables\n.env\n.env.local\n.env.production" 
+-e "\n# Environment variables\n.env\n.env.local\n.env.production" 
+-e "\n# Environment variables\n.env\n.env.local\n.env.production" 

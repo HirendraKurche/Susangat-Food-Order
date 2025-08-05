@@ -1,5 +1,26 @@
+<<<<<<< HEAD
 # Dependencies
 node_modules/
+=======
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+/dist
+admin/dist/
+frontend/dist/
+
+# misc
+.DS_Store
+.env.local
+.env.*.local
+>>>>>>> a5cb5c88751df88443f51e19771d18a1a13bc97d
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
