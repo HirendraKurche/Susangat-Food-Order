@@ -9,7 +9,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // placing user order for frontend
 const placeOrder = async (req, res) => {
-  const frontend_url = "https://susangat-food-del.onrender.com"  // More flexible configuration
+  const frontend_url = process.env.FRONTEND_URL || "https://susangat-food-del.onrender.com"  // Use environment variable
   console.log("Frontend URL being used:", frontend_url);
   try {
     const newOrder = new orderModel({

@@ -22,6 +22,7 @@ const Verify = () => {
     console.log("Verify component loaded");
     console.log("Current URL:", window.location.href);
     console.log("Search params - success:", success, "orderId:", orderId);
+    console.log("Backend URL:", url);
 
     // verifyPayment function is used to verify the payment status of the order
     const verifyPayment = useCallback(async()=>{
