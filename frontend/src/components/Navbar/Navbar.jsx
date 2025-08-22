@@ -21,12 +21,6 @@ const Navbar = ({ setShowLogin }) => {
   //check if current page is homepage
   const isHomePage = location.pathname === '/';
   
-  // Debug: Check what images are being loaded
-  console.log('Current page:', location.pathname);
-  console.log('Is homepage:', isHomePage);
-  console.log('Logo source:', isHomePage ? assets.logo : assets.logo1);
-  console.log('Search icon source:', isHomePage ? assets.search_icon : assets.search_icon1);
-  
   //logout function to clear the token and redirect to home
   const logout=()=>{
     localStorage.removeItem("token");

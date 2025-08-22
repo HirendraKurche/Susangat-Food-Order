@@ -3,7 +3,7 @@ import './LoginPopup.css'
 import { assets } from '../../assets/assets'
 import { StoreContext } from '../../context/StoreContext';
 import axios from 'axios';
-// import { toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 //setShowlogin prop is come from App.jsx
 //setShowLogin is a function that will be used to set the showLogin state variable to false
 
@@ -53,10 +53,10 @@ const LoginPopup = ({ setShowLogin }) => {
             // setting the token in the StoreContext and localStorage
             setToken(response.data.token);
             localStorage.setItem("token", response.data.token);
-            // toast.success("Login Successfully")
+            toast.success("Login Successfully")
             setShowLogin(false);
         } else {
-            // toast.error(response.data.message);
+            toast.error(response.data.message);
         }
     }
 
@@ -71,8 +71,8 @@ const LoginPopup = ({ setShowLogin }) => {
                     {/* hiding the input name field in login */}
                     {/* whatever the change happen in input field is update using the onChangeHandler */}
                     {currentState === 'Login' ? <></> : (<input name='name' onChange={onChangeHandler} value={data.name} type='text' placeholder="Enter your name" required />)}
-                    <input name='email' onChange={onChangeHandler} value={data.email} type='email' placeholder="Enter your email" required />
-                    <input name='password' onChange={onChangeHandler} value={data.password} type='password' placeholder="Enter your password" required />
+                    <input name='email' onChange={onChangeHandler} value={data.email} type='email' placeholder="Enter your email" autoComplete="email" required />
+                    <input name='password' onChange={onChangeHandler} value={data.password} type='password' placeholder="Enter your password" autoComplete="current-password" required />
                 </div>
                 <button type='submit'> {currentState === 'sign Up' ? 'Create  Account' : 'Login'}</button>
                 <div className='login-popup-condition'>
