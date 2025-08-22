@@ -10,7 +10,6 @@ import { useNavigate } from "react-router-dom";
 
 const PlaceOrder = () => {
   const { getTotalCartAmount, token, food_list, cartItems, url } = useContext(StoreContext);
-  const navigate = useNavigate();
 
   //creating a state variable for the place order form data
   const [data, setData] = useState({
@@ -37,12 +36,6 @@ const PlaceOrder = () => {
   const placeOrder = async (event) => {
     //to prevent page reload 
     event.preventDefault();
-    
-    // Temporary test - test verify page directly
-    console.log("Testing direct navigation to verify page");
-    navigate("/verify?success=true&orderId=test123");
-    return;
-    
     //container for order
     let orderItems = [];
     food_list.map((item) => {
@@ -67,10 +60,9 @@ const PlaceOrder = () => {
     // if the response is successful then redirect to the payment page
     if (response.data.success) {
       const { session_url } = response.data;
-      console.log("Redirecting to payment URL:", session_url);
       window.location.replace(session_url);
     } else {
-      toast.error("Error placing order!")
+      toast.error("Errors!")
     }
   };
 
@@ -86,7 +78,7 @@ const PlaceOrder = () => {
       toast.error("Please Add Items to Cart");
       navigate("/cart")
     }
-  }, [token, getTotalCartAmount, navigate])
+  }, [token])
 
 
   return (

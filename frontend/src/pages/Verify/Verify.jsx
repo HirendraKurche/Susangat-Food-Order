@@ -26,11 +26,7 @@ const Verify = () => {
 
     // verifyPayment function is used to verify the payment status of the order
     const verifyPayment = useCallback(async()=>{
-        console.log("verifyPayment function called");
-        console.log("URL params - success:", success, "orderId:", orderId);
-        
         if (!success || !orderId) {
-            console.error("Missing payment parameters - success:", success, "orderId:", orderId);
             toast.error("Invalid payment parameters");
             navigate("/");
             return;
